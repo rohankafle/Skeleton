@@ -142,13 +142,22 @@
             background-color: rgba(0, 123, 255, 0.2);
         }
     </style>
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this product?');
+        }
+
+        function confirmLogout() {
+            return confirm('Are you sure you want to log out?');
+        }
+    </script>
 </head>
 <body>
 
     <form id="form1" runat="server">
        <div class="container">
-            <!-- Logout Button -->
-            <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="logout-button" OnClick="btnLogout_Click" />
+             <!-- Logout Button -->
+            <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="logout-button" OnClientClick="return confirmLogout();" OnClick="btnLogout_Click" />
 
             <h2>Manage Products</h2>
             
@@ -189,20 +198,21 @@
             <br />
 
             <!-- Products Grid -->
-           <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId"
-    OnRowEditing="gvProducts_RowEditing" 
-    OnRowCancelingEdit="gvProducts_RowCancelingEdit" 
-    OnRowDeleting="gvProducts_RowDeleting">
-    <Columns>
-        <asp:BoundField DataField="ProductId" HeaderText="Product ID" ReadOnly="True" />
-        <asp:BoundField DataField="CategoryId" HeaderText="Category ID" />
-        <asp:BoundField DataField="Name" HeaderText="Name" />
-        <asp:BoundField DataField="Description" HeaderText="Description" />
-        <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
-        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-        <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
-    </Columns>
-</asp:GridView>
+          <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId"
+                    OnRowEditing="gvProducts_RowEditing" 
+                    OnRowCancelingEdit="gvProducts_RowCancelingEdit" 
+                    OnRowDeleting="gvProducts_RowDeleting" 
+                    OnClientClick="return confirmDelete();">
+                    <Columns>
+                        <asp:BoundField DataField="ProductId" HeaderText="Product ID" ReadOnly="True" />
+                        <asp:BoundField DataField="CategoryId" HeaderText="Category ID" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" />
+                        <asp:BoundField DataField="Description" HeaderText="Description" />
+                        <asp:BoundField DataField="Price" HeaderText="Price" DataFormatString="{0:C}" />
+                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                        <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
+                    </Columns>
+                </asp:GridView>
 
 
         </div>
