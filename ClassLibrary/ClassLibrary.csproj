@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="ClsProducts.cs" />
+    <Compile Include="ClsProductsCollection.cs" />
     <Compile Include="ClsProductUsers.cs" />
     <Compile Include="ClsProductUsersCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
