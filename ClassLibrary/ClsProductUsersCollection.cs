@@ -104,6 +104,8 @@ namespace ClassLibrary
             // Execute the stored procedure and return the UserId
             return Convert.ToInt32(DB.Execute("sproc_tblProductUsers_Insert"));
         }
+       
+
 
 
         // Method to delete a user by UserId
