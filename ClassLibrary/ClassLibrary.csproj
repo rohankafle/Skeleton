@@ -48,11 +48,5 @@
     <Compile Include="ClsProductUsersCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Testing1\Testing1.csproj">
-      <Project>{4186b3b3-ebea-434e-844f-f79d774c252b}</Project>
-      <Name>Testing1</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
